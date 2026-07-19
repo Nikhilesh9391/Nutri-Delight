@@ -65,6 +65,12 @@
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 4px 12px rgba(18,48,35,0.25);
   }
+  .brand-logo{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    border-radius:50%;
+}
   .brand-mark span{
     width:29px; height:29px; border-radius:50%; background:var(--cream);
     display:flex; align-items:center; justify-content:center;
@@ -92,6 +98,12 @@
       radial-gradient(circle at 85% 8%, rgba(232,163,61,0.28), transparent 45%),
       radial-gradient(circle at 8% 95%, rgba(193,63,44,0.16), transparent 40%);
   }
+  .hero-logo{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    border-radius:50%;
+}
   .hero-grid{
     max-width:1180px; margin:0 auto;
     display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:center;
@@ -132,7 +144,49 @@
   .hero-stats div span{font-size:12.5px; color:var(--text-soft); letter-spacing:0.3px;}
 
   /* hero visual: layered jars/plate illustration via CSS */
-  .hero-visual{position:relative; height:460px; display:flex; align-items:center; justify-content:center;}
+  .hero-visual{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+height:500px;
+
+position:relative;
+
+}
+.hero-video{
+
+width:520px;
+
+height:520px;
+
+object-fit:cover;
+
+border-radius:50%;
+
+filter:drop-shadow(0 25px 50px rgba(0,0,0,.18));
+
+animation:heroFloat 6s ease-in-out infinite;
+
+}
+@keyframes heroFloat{
+
+0%,100%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
   .plate{
     width:340px; height:340px; border-radius:50%;
     background:var(--paper);
@@ -328,6 +382,229 @@
   footer ul li a:hover{color:var(--gold);}
   .foot-bottom{max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; padding-top:22px; font-size:12px; flex-wrap:wrap; gap:10px;}
 
+  /* ---------- TOAST ---------- */
+
+.toast{
+
+position:fixed;
+
+right:30px;
+
+bottom:30px;
+
+background:white;
+
+padding:15px 20px;
+
+border-radius:14px;
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.18);
+
+transform:translateY(150px);
+
+opacity:0;
+
+transition:.35s;
+
+z-index:9999;
+
+}
+
+.toast.show{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+.toast-icon{
+
+width:45px;
+
+height:45px;
+
+background:#1F4A34;
+
+color:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+font-weight:bold;
+
+}
+
+.toast b{
+
+display:block;
+
+font-size:15px;
+
+}
+
+.toast p{
+
+font-size:13px;
+
+color:#666;
+
+margin-top:3px;
+
+}
+
+/* ---------- CART DRAWER ---------- */
+
+.cart-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.45);
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:998;
+}
+
+.cart-overlay.show{
+opacity:1;
+visibility:visible;
+}
+
+.cart-drawer{
+position:fixed;
+top:0;
+right:-420px;
+width:400px;
+max-width:100%;
+height:100vh;
+background:#fff;
+box-shadow:-10px 0 40px rgba(0,0,0,.18);
+transition:.35s;
+display:flex;
+flex-direction:column;
+z-index:999;
+}
+
+.cart-drawer.show{
+right:0;
+}
+
+.cart-header{
+padding:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eee;
+font-size:20px;
+font-weight:bold;
+}
+
+.cart-close{
+cursor:pointer;
+font-size:28px;
+}
+
+.cart-items{
+flex:1;
+overflow:auto;
+padding:20px;
+}
+
+.cart-empty{
+text-align:center;
+color:#777;
+margin-top:80px;
+font-size:15px;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 0;
+border-bottom:1px solid #eee;
+}
+
+.cart-name{
+font-weight:600;
+}
+
+.cart-price{
+font-size:14px;
+color:#666;
+margin-top:4px;
+}
+
+.cart-footer{
+padding:20px;
+border-top:1px solid #eee;
+}
+
+.cart-total{
+display:flex;
+justify-content:space-between;
+font-size:18px;
+font-weight:bold;
+margin-bottom:18px;
+}
+
+.checkout-btn{
+width:100%;
+padding:14px;
+background:#1F4A34;
+color:#fff;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.25s;
+}
+
+.checkout-btn:hover{
+background:#163524;
+}
+
+.clear-cart{
+margin-top:12px;
+width:100%;
+padding:12px;
+border:none;
+background:#C13F2C;
+color:white;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.qty-box{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.qty-btn{
+width:30px;
+height:30px;
+border:none;
+background:#1F4A34;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:900px){
     nav.links{display:none;}
@@ -360,7 +637,7 @@
 <header>
   <div class="nav">
     <div class="brand">
-      <div class="brand-mark"><span>ND</span></div>
+      <img src="nutri delight logo.png" alt="Nutri Delight Logo" class="brand-logo">
       <div class="brand-name">Nutri Delight<small>Bhimavaram</small></div>
     </div>
     <nav class="links">
@@ -369,7 +646,31 @@
       <a href="#quality">Quality</a>
       <a href="#order">Visit / Order</a>
     </nav>
-    <a class="nav-cta" href="#order-form" id="navOrder">Order Now →</a>
+    <div style="display:flex;align-items:center;gap:15px;">
+
+<div id="cartBtn"
+
+style="
+
+background:white;
+
+padding:10px 18px;
+
+border-radius:100px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 5px 20px rgba(0,0,0,.12);
+
+">
+
+🛒 <span id="cartCount">0</span>
+
+</div>
+
+<a class="nav-cta" href="#order-form" id="navOrder">Order Now →</a></div>
   </div>
 </header>
 
@@ -390,15 +691,19 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="float-chip c1"><span class="dot"></span> Cold-Pressed Oils & Ghee</div>
-      <div class="float-chip c2"><span class="dot"></span> Alkaline Water</div>
-      <div class="float-chip c3"><span class="dot"></span> Cast Iron & Steel Cooked</div>
-      <div class="plate">
-        <div class="plate-inner">
-          <div class="plate-core">
-            <b>Nutri<br>Delight</b>
-            <span>Est. Bhimavaram</span>
-          </div>
+
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline>
+
+        <source src="hero.mp4" type="video/mp4">
+
+    </video>
+
+</div>
         </div>
       </div>
     </div>
@@ -521,7 +826,7 @@
   <div class="foot-grid">
     <div>
       <div class="foot-brand">
-        <div class="brand-mark"><span>ND</span></div>
+        <img src="nutri delight logo.png" alt="Nutri Delight Logo" class="brand-logo">
         <div class="brand-name">Nutri Delight</div>
       </div>
       <p>A Bhimavaram-based healthy food counter serving cold-pressed juices, millet tiffins and preservative-free snacks — made fresh, every day.</p>
@@ -550,7 +855,68 @@
   </div>
 </footer>
 
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<div class="cart-drawer" id="cartDrawer">
+
+<div class="cart-header">
+
+<span>🛒 My Cart</span>
+
+<span class="cart-close" id="closeCart">&times;</span>
+
+</div>
+
+<div class="cart-items" id="cartItems">
+
+<div class="cart-empty">
+
+Your cart is empty
+
+</div>
+
+</div>
+
+<div class="cart-footer">
+
+<div class="cart-total">
+
+<span>Total</span>
+
+<span id="cartTotal">₹0</span>
+
+</div>
+
+<button class="checkout-btn">
+
+Proceed to Checkout
+
+</button>
+
+<button class="clear-cart">
+
+Clear Cart
+
+</button>
+
+</div>
+
+</div>
+
+<div id="toast" class="toast">
+
+    <div class="toast-icon">✔</div>
+
+    <div>
+        <b>Added to Cart</b>
+        <p id="toastText"></p>
+    </div>
+
+</div>
+
 <script>
+
+  let cart = [];
   const menuData = [
     {
       key: "tea", label: "Tea / Coffee",
@@ -624,10 +990,38 @@
     panel.id = 'panel-' + cat.key;
 
     const rows = cat.items.map(([name, price]) => `
-      <div class="menu-row">
-        <span class="mname">${name}</span>
-        <span class="mprice">₹${price}/-</span>
-      </div>`).join('');
+<div class="menu-row">
+
+<div>
+<span class="mname">${name}</span>
+</div>
+
+<div style="display:flex;align-items:center;gap:10px;">
+
+<span class="mprice">₹${price}</span>
+
+<div id="qty-${cat.key}-${name.replace(/\s+/g,'')}">
+
+<button
+onclick="addToCart('${cat.key}','${name}',${price})"
+style="
+background:#1F4A34;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+">
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+`).join('');
 
     panel.innerHTML = `
       <div class="menu-card">
@@ -638,6 +1032,323 @@
       </div>`;
     panelHolder.appendChild(panel);
   });
+
+  function showToast(text){
+
+    const toast = document.getElementById("toast");
+
+    document.getElementById("toastText").innerHTML = text;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2000);
+
+}
+
+function updateCart(){
+
+    const cartCount=document.getElementById("cartCount");
+    const cartItems=document.getElementById("cartItems");
+    const cartTotal=document.getElementById("cartTotal");
+
+    cartCount.innerHTML=cart.length;
+
+    if(cart.length===0){
+
+        cartCount.style.background="";
+        cartCount.style.color="";
+
+        cartItems.innerHTML=`
+        <div class="cart-empty">
+            Your cart is empty
+        </div>`;
+
+        cartTotal.innerHTML="₹0";
+
+        return;
+
+    }
+
+    cartCount.style.background="#C13F2C";
+    cartCount.style.color="white";
+    cartCount.style.padding="2px 8px";
+    cartCount.style.borderRadius="50px";
+
+    let total=0;
+
+    const grouped={};
+
+    cart.forEach(item=>{
+
+        total+=Number(item.price);
+
+        const key=item.category+"-"+item.name;
+
+        if(!grouped[key]){
+
+            grouped[key]={
+                category:item.category,
+                name:item.name,
+                price:Number(item.price),
+                qty:0
+            };
+
+        }
+
+        grouped[key].qty++;
+
+    });
+
+    cartItems.innerHTML=Object.values(grouped).map(item=>`
+
+<div class="cart-item">
+
+<div>
+
+<div class="cart-name">${item.name}</div>
+
+<div class="cart-price">
+₹${item.price} × ${item.qty}
+</div>
+
+</div>
+
+<div class="qty-box">
+
+<button
+class="qty-btn"
+onclick="removeItem('${item.category}','${item.name}',${item.price})"
+>-</button>
+
+<b>${item.qty}</b>
+
+<button
+class="qty-btn"
+onclick="addToCart('${item.category}','${item.name}',${item.price})"
+>+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+    cartTotal.innerHTML="₹"+total;
+
+}
+
+function addToCart(category,name,price){
+
+    cart.push({
+        category,
+        name,
+        price
+    });
+
+    updateCart();
+
+    showToast(name + " added to cart");
+
+    updateQuantity(category,name,price);
+    updateCart();
+
+}
+
+function updateQuantity(category,name,price){
+
+    const id="qty-"+category+"-"+name.replace(/\s+/g,'');
+
+    const box=document.getElementById(id);
+
+    const qty = cart.filter(item =>
+    item.name === name &&
+    item.category === category
+).length;
+
+    if(qty===0){
+
+        box.innerHTML=`
+<button
+onclick="addToCart('${category}','${name}',${price})"
+style="
+background:#1F4A34;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+">
++
+</button>`;
+
+        return;
+
+    }
+
+    box.innerHTML=`
+
+<button
+onclick="removeItem('${category}','${name}',${price})"
+style="
+width:32px;
+height:32px;
+background:#C13F2C;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+">-</button>
+
+<b>${qty}</b>
+
+<button
+onclick="addToCart('${category}','${name}',${price})"
+style="
+width:32px;
+height:32px;
+background:#1F4A34;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+">+</button>
+
+`;
+
+}
+
+function removeItem(category,name,price){
+
+    const index = cart.findIndex(item =>
+    item.name === name &&
+    item.category === category
+);
+
+    if(index>-1){
+
+        cart.splice(index,1);
+
+    }
+
+    updateCart();
+
+    updateQuantity(category,name,price);
+    updateCart();
+
+}
+
+const cartBtn=document.getElementById("cartBtn");
+const cartDrawer=document.getElementById("cartDrawer");
+const cartOverlay=document.getElementById("cartOverlay");
+const closeCart=document.getElementById("closeCart");
+
+cartBtn.onclick=openCart;
+
+closeCart.onclick=closeCartDrawer;
+
+cartOverlay.onclick=closeCartDrawer;
+
+function openCart(){
+
+    updateCart();
+
+    cartDrawer.classList.add("show");
+
+    cartOverlay.classList.add("show");
+
+}
+
+function closeCartDrawer(){
+
+    cartDrawer.classList.remove("show");
+
+    cartOverlay.classList.remove("show");
+
+}
+
+const clearCartBtn=document.querySelector(".clear-cart");
+
+clearCartBtn.onclick=function(){
+
+    if(cart.length===0){
+        alert("Cart is already empty.");
+        return;
+    }
+
+    if(!confirm("Clear all items from cart?")){
+        return;
+    }
+
+    cart=[];
+
+    menuData.forEach(cat=>{
+        cat.items.forEach(([name,price])=>{
+            updateQuantity(cat.key,name,Number(price));
+        });
+    });
+
+    updateCart();
+    const checkoutBtn=document.querySelector(".checkout-btn");
+
+checkoutBtn.onclick=function(){
+
+    if(cart.length===0){
+        alert("Your cart is empty.");
+        return;
+    }
+
+    let total=0;
+
+    const grouped={};
+
+    cart.forEach(item=>{
+
+        total+=Number(item.price);
+
+        const key=item.category+"-"+item.name;
+
+        if(!grouped[key]){
+
+            grouped[key]={
+                name:item.name,
+                price:Number(item.price),
+                qty:0
+            };
+
+        }
+
+        grouped[key].qty++;
+
+    });
+
+    let message="*Nutri Delight Order*%0A%0A";
+
+    Object.values(grouped).forEach(item=>{
+
+        message+=`${item.name} × ${item.qty} = ₹${item.price*item.qty}%0A`;
+
+    });
+
+    message+="%0A--------------------%0A";
+    message+=`*Total : ₹${total}*%0A%0A`;
+    message+="Customer Name : %0A";
+    message+="Phone Number : ";
+
+    window.open(
+        "https://wa.me/919010972333?text="+message,
+        "_blank"
+    );
+
+    closeCartDrawer();
+
+}
+
+}
 
   function switchTab(key){
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.key === key));
